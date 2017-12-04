@@ -64,6 +64,11 @@ extension PhotosInputCameraPicker: UIImagePickerControllerDelegate, UINavigation
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         self.finishPickingImage(image, fromPicker: picker)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.finishPickingImage(image, fromPicker: picker)
+    }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.finishPickingImage(nil, fromPicker: picker)
