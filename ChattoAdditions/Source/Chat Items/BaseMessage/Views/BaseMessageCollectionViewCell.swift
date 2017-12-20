@@ -231,7 +231,8 @@ open class BaseMessageCollectionViewCell<BubbleViewType>: UICollectionViewCell, 
         self.bubbleView.bma_rect = layoutModel.bubbleViewFrame
         self.bubbleView.preferredMaxLayoutWidth = layoutModel.preferredMaxWidthForBubble
         self.bubbleView.layoutIfNeeded()
-
+        self.avatarView.layer.cornerRadius = self.avatarView.frame.width/2
+        self.avatarView.layer.masksToBounds = true
         self.avatarView.bma_rect = layoutModel.avatarViewFrame
 
         if self.accessoryTimestampView.superview != nil {
