@@ -17,7 +17,7 @@ open class LocationChatInputItem: ChatInputItemProtocol {
     typealias Class = LocationChatInputItem
     
     public var inputView: UIView?
-    
+    public var locationButtonDidTap: (() -> Void)?
     open var tabView: UIView {
         return self.internalTabView
     }
@@ -35,7 +35,12 @@ open class LocationChatInputItem: ChatInputItemProtocol {
     }()
     
     public func handleInput(_ input: AnyObject) {
+        
+    }
+    
+    @objc func onLocationTapped(_ sender: Any) {
         print("Location button tap...")
+        locationButtonDidTap?()
     }
     
     let buttonAppearance: TabInputButtonAppearance
@@ -43,6 +48,7 @@ open class LocationChatInputItem: ChatInputItemProtocol {
     public init(tabInputButtonAppearance: TabInputButtonAppearance = Class.createDefaultButtonAppearance()){
         self.buttonAppearance = tabInputButtonAppearance
         self.presentationMode = .none
+        self.internalTabView.addTarget(self, action: #selector(self.onLocationTapped(_:)), for: .touchUpInside)
     }
     
     public static func createDefaultButtonAppearance() -> TabInputButtonAppearance {
@@ -54,3 +60,4 @@ open class LocationChatInputItem: ChatInputItemProtocol {
         return TabInputButtonAppearance(images: images, size: nil)
     }
 }
+
