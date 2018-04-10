@@ -160,7 +160,7 @@ open class BaseMessageCollectionViewCellDefaultStyle: BaseMessageCollectionViewC
 
 public extension BaseMessageCollectionViewCellDefaultStyle { // Default values
     static public func createDefaultColors() -> Colors {
-        return Colors(incoming: UIColor.bma_color(rgb: 0xE6ECF2), outgoing: UIColor.bma_color(rgb: 0x3D68F5))
+        return Colors(incoming: UIColor.bma_color(rgb: 0xf2f2f9), outgoing: UIColor.bma_color(rgb: 0xfce7ea))
     }
 
     static public func createDefaultBubbleBorderImages() -> BubbleBorderImages {
@@ -183,7 +183,7 @@ public extension BaseMessageCollectionViewCellDefaultStyle { // Default values
     }
 
     static public func createDefaultDateTextStyle() -> DateTextStyle {
-        return DateTextStyle(font: UIFont.systemFont(ofSize: 12), color: UIColor.bma_color(rgb: 0x9aa3ab))
+        return DateTextStyle(font: UIFont.systemFont(ofSize: 12), color: UIColor.bma_color(rgb: 0x464646))
     }
 
     static public func createDefaultLayoutConstants() -> BaseMessageCollectionViewCellLayoutConstants {
